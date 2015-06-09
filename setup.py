@@ -151,7 +151,7 @@ ext_modules=[
                        #'srilm/dstruct/src/testTrie.cc',
                    ],
               libraries=['z', 'iconv'],
-              include_dirs=['srilm/lm/src', 'srilm/include', '/opt/local/include'],
+              include_dirs=['srilm/lm/src', 'srilm/include'],
               language="c++",
               define_macros=[
                   ('HAVE_ZOPEN', 1),
