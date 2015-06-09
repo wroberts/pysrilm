@@ -62,7 +62,7 @@ ext_modules=[
                        #'srilm/misc/src/testFile.cc',
                        'srilm/misc/src/tls.cc',
                        'srilm/misc/src/tserror.cc',
-                       'srilm/misc/src/version.c',
+                       #'srilm/misc/src/version.c',
                        'srilm/misc/src/zio.c',
                        #'srilm/misc/src/ztest.c',
                        'srilm/lm/src/matherr.c',
