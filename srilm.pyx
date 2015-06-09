@@ -1,4 +1,4 @@
-#!/usr/bin/env cython
+#!/usr/bin/env cython --cplus
 # -*- coding: utf-8 -*-
 
 '''
