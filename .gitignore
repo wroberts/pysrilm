@@ -59,3 +59,4 @@ target/
 
 # pysrilm project ignores
 /srilm
+/srilm.cpp
