@@ -39,3 +39,10 @@ Install
 
 Put the SRILM source in the ``srilm`` directory in this directory and
 do ``python setup.py install`` or ``python setup.py build_ext``.
+
+Development
+===========
+
+For faster turnarounds when hacking on the source code, you can do
+``CC="ccache gcc" CXX="ccache c++ python setup.py build_ext"``, as
+noted in `this StackOverflow answer <http://stackoverflow.com/a/13176803/1062499>`_.
