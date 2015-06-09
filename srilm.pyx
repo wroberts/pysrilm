@@ -24,6 +24,7 @@ cdef extern from "Vocab.h":
     cdef cppclass Vocab:
         Vocab()
         VocabString getWord(VocabIndex index)
+        # http://stackoverflow.com/a/5090236/1062499
         VocabIndex getIndex(VocabString name,
                             VocabIndex unkIndex)
         VocabIndex getIndex(VocabString name)
@@ -86,6 +87,7 @@ cdef extern from "ngramiter.h":
 # Helper Function
 #
 
+# http://stackoverflow.com/a/17511714/1062499
 cdef VocabString * char_ptr_array(list_of_strs):
     cdef unsigned int max = len(list_of_strs)
     cdef VocabString *clist
@@ -139,6 +141,7 @@ cdef class SRILMVocab:
         Arguments:
         - `idxs`:
         '''
+        # http://docs.cython.org/src/tutorial/array.html
         cdef c_array.array cidxs = array('I', idxs)
         cdef unsigned int max = len(idxs)
         cdef VocabString *cwords
