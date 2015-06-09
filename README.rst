@@ -4,7 +4,7 @@
 
 Python Interface to SRILM
 
-(c) Will Roberts   9 June, 2015
+Copyright (c) Will Roberts   9 June, 2015
 
 License: The source code included in this package is licensed under
 the MIT License (see ``LICENSE.txt``).  To install, you will also need
