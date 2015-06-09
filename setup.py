@@ -8,11 +8,17 @@ setup.py
 Setup script for pysrilm.
 '''
 
-from Cython.Build import cythonize
 from codecs import open
 from os import path
 from setuptools import setup, Extension
+from setuptools.command.sdist import sdist as _sdist
 import sys
+try:
+    from Cython.Distutils import build_ext
+except ImportError:
+    USE_CYTHON = False
+else:
+    USE_CYTHON = True
 
 HERE = path.abspath(path.dirname(__file__))
 
@@ -20,9 +26,22 @@ HERE = path.abspath(path.dirname(__file__))
 with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
     LONG_DESCRIPTION = f.read()
 
+# http://stackoverflow.com/a/4515279/1062499
+cmdclass = { }
+# http://stackoverflow.com/a/18418524/1062499
+class sdist(_sdist):
+    def run(self):
+        # Make sure the compiled Cython files in the distribution are up-to-date
+        from Cython.Build import cythonize
+        cythonize(['cython/mycythonmodule.pyx'])
+        _sdist.run(self)
+cmdclass['sdist'] = sdist
+if USE_CYTHON:
+    cmdclass.update({ 'build_ext': build_ext })
+
 ext_modules=[
     Extension("srilm",
-              sources=["srilm.pyx",
+              sources=["srilm.pyx" if USE_CYTHON else "srilm.cpp",
                        'srilm/include/Array.cc',
                        'srilm/include/CachedMem.cc',
                        'srilm/include/IntervalHeap.cc',
@@ -147,7 +166,7 @@ setup(
     version='0.0.1',
     description='Python Interface to SRILM',
     long_description=LONG_DESCRIPTION,
-    
+
     # The project's main homepage.
     url='https://github.com/wroberts/pysrilm',
 
@@ -187,7 +206,8 @@ setup(
     # What does your project relate to?
     keywords='ngram statistics language model',
 
-    ext_modules = cythonize(ext_modules),
+    ext_modules = ext_modules,
+    cmdclass = cmdclass,
 
     install_requires=[],
 )
