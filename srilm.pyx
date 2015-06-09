@@ -70,7 +70,8 @@ cdef extern from "ngramiter.h":
         NgramCount sumCounts()
         NgramCount sumCounts(unsigned int order)
         unsigned pruneCounts(NgramCount minCount)
-        void setCounts(NgramCount value = 0)
+        void setCounts(NgramCount value)
+        void setCounts()
         void clear()
         unsigned int countFile(File &file, Boolean weighted)
     cdef cppclass IterableNgramStatsIter:
