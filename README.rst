@@ -5,6 +5,8 @@
 Python Interface to SRILM
 (c) Will Roberts   9 June, 2015
 
+License: MIT (see ``LICENSE.txt``).
+
 Getting Started
 ===============
 
