@@ -173,7 +173,7 @@ cdef class SRILMVocab:
         - `word`: this should be of type `str` or `bytes` (i.e., do
           any encoding before passing `word` to this method)
         '''
-        return self.get_index(word) is None
+        return self.get_index(word) is not None
 
     def get_indices(self, words):
         '''
