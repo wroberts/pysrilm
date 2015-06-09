@@ -5,7 +5,12 @@
 Python Interface to SRILM
 (c) Will Roberts   9 June, 2015
 
-License: MIT (see ``LICENSE.txt``).
+License: The source code included in this package is licensed under
+the MIT License (see ``LICENSE.txt``).  To install, you will also need
+a copy of the `SRILM toolkit`_, for which you will need a license from
+SRI.
+
+.. _`SRILM toolkit`: http://www.speech.sri.com/projects/srilm/
 
 Getting Started
 ===============
