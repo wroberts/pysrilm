@@ -44,5 +44,5 @@ Development
 ===========
 
 For faster turnarounds when hacking on the source code, you can do
-``CC="ccache gcc" CXX="ccache c++ python setup.py build_ext"``, as
+``CC="ccache gcc" CXX="ccache g++" python setup.py build_ext``, as
 noted in `this StackOverflow answer <http://stackoverflow.com/a/13176803/1062499>`_.
